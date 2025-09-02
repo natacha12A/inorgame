@@ -1,0 +1,271 @@
+/* === Corpo e layout principal === */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to bottom, #31174D, #000000);
+  color: #fff;
+  text-align: center;
+  height: 100vh;
+
+  /* Flex para colocar compostos e categorias lado a lado */
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: flex-start;   /* alinha pelo topo */
+  gap: 100px;                /* espaço entre compostos e categorias */
+  flex-wrap: wrap;           /* permite quebrar linha se necessário */
+}
+
+/* === Header === */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+#logo {
+  font-size: 40px;
+  color: #ffcc00;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+/* === Popup da logo === */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.popup-content {
+  background: #6F4A8E;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+}
+
+.botoesLogo {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 2rem;
+}
+
+.botoesLogo button {
+  height: 40px;
+  width: 80px;
+  cursor: pointer;
+  background-color: #F2BD33;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+}
+
+/* === Composto === */
+.compostos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  /* espaço entre cada composto */
+}
+
+.composto {
+  background: #652d90;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 36px;
+  font-weight: 400;
+  cursor: grab;
+  user-select: none;
+  color: #ffcc00;
+  width: 183px;
+}
+
+/* === Categorias === */
+.categorias {
+  display: flex;
+  flex-direction: row;  /* mantém duas colunas lado a lado */
+  gap: 50px;
+}
+
+.categorias2, .categorias3 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;  /* espaço entre categorias da coluna */
+}
+
+.categoria {
+  background: #c8b6d9;
+  color: #2b0c46;
+  padding: 30px 50px;
+  border-radius: 12px;
+  font-size: 32px;
+  font-weight: 400;
+  width: 321px;
+  height: 151px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.4s;
+}
+
+.categoria.over {
+  outline: 2px dashed #ffcc00;
+}
+
+.categoria.correto {
+  background: #28a745 !important;
+  color: #fff;
+}
+
+.categoria.errado {
+  background: #dc3545 !important;
+  color: #fff;
+}
+
+/* === Progress bar === */
+.progress-bar {
+  width: 90%;
+  height: 50px;
+  margin-left: 6rem;
+  background: #4b1972;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: #ffcc00;
+  transition: width 0.3s;
+}
+
+/* === Bixinho === */
+.bixinho {
+  position: absolute;
+  top: 150px;
+  left: 40rem;
+  width: 120px;
+  transition: opacity 0.10s;
+}
+
+.bixinho img {
+  width: 100%;
+}
+
+/* === Popups === */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: #6F4A8E;
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.h2-bixin {
+  color: #ffcc00;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.popup-text {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.4;
+  margin-top: 10px;
+}
+
+.fechar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === Popup final e erro === */
+.popup-caixa {
+  background: #D5CBE0;
+  color: #2b0c46;
+  padding: 40px;
+  border-radius: 20px;
+  width: 1500px;
+  height: 700px;
+  max-width: 95%;
+  text-align: center;
+  box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+}
+
+#popup-erro .popup-caixa {
+  background: #D4CADF;
+  color: #522780;
+}
+
+.estrela {
+  font-size: 70px;
+  margin-bottom: 20px;
+}
+
+#mensagem-final, #mensagem-erro {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #522780;
+  font-weight: bold;
+}
+
+#mensagem-final2, #mensagem-erro2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #522780;
+  font-weight: bold;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  gap: 262px;
+}
+
+.botoes button {
+  background: #522780;
+  border: none;
+  color: #F2BD33;
+  padding: 12px 25px;
+  border-radius: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+  height: 75px;
+  width: 200px;
+  margin-top: 5rem;
+}
+
+.botoes button:hover {
+  opacity: 0.85;
+}

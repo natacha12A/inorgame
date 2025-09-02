@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="nivel2.css">
+  <title>INORGAME2</title>
+</head>
+<body>
+  <header>
+    <img src="./assets/logo clara (2).png" id="logo" alt="logo">
+  </header>
+
+    <!-- Popup da logo -->
+<div id="popup-logo" class="popup">
+  <div class="popup-content">
+    <p>Deseja voltar para o menu?</p>
+    <div class="botoesLogo">
+      <button id="btnLogoSim">SIM</button>
+      <button id="btnLogoNao">NÃO</button>
+    </div>
+  </div>
+</div>
+
+  <img src="./assets/pergunta 2.png" alt="nivel1">
+  <p>Classifique os compostos</p>
+
+  <!-- Bixinho -->
+  <div id="bixinho-triste" class="bixinho" style="display: none;">
+    <img src="./assets/bixinho-popup.png" alt="Bixinho triste" id="bixinho-img" />
+  </div>
+  
+  <!-- Popup explicação do bixinho -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <span id="fecharPopup" class="fechar">&times;</span>
+      <h2 class="h2-bixin">Explicação</h2>
+      <p class="popup-text">Essa informação está errada pois HCl é um ácido não uma base</p>
+    </div>
+  </div>
+
+  <div class="compostos" id="compostos">
+    <div class="composto" draggable="true" data-tipo="ácido">HCl</div>
+    <div class="composto" draggable="true" data-tipo="sal">NaCl</div>
+    <div class="composto" draggable="true" data-tipo="óxido">CO2</div>
+    <div class="composto" draggable="true" data-tipo="base">Mg(OH)2</div>
+  </div>
+
+  <div class="categorias">
+    <div class="categorias2">
+        <div class="categoria" data-tipo="ácido">Ácidos</div>
+        <div class="categoria" data-tipo="base">Bases</div>
+    </div>
+    
+    <div class="categorias3">
+        <div class="categoria" data-tipo="sal">Sal</div>
+        <div class="categoria" data-tipo="óxido">Óxido</div>
+    </div>
+    
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <!-- Popup final -->
+  <div id="popup-final" class="popup">
+    <div class="popup-caixa">
+      <div class="estrela"><img src="./assets/image 20.png" alt=""></div>
+      <p id="mensagem-final">Parabéns! Você concluiu o primeiro nivel</p>
+      <p id="mensagem-final2">Deseja continuar jogando?</p>
+      <div class="botoes">
+        <button id="btnNao">NAO</button>
+        <button id="btnSim">SIM</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup de erro -->
+  <div id="popup-erro" class="popup">
+    <div class="popup-caixa">
+      <div class="estrela"><img src="./assets/image 22.png" alt="estrela branca"></div>
+      <p id="mensagem-final">Poxa! Só uma estrela branca... Tente novamente!</p>
+      <p id="mensagem-final2">Deseja tentar novamente?</p>
+      <div class="botoes">
+        <button id="btnSim">SIM</button>
+        <button id="btnSim">NÃO</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./nivel2.js"></script>
+</body>
+</html>

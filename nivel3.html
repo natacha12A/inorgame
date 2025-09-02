@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="nivel3.css">
+<title>Missão Química</title>
+</head>
+<body>
+<header>
+    <img src="./assets/logo clara (1).png" alt="logo">
+</header>
+
+<img src="./assets/pergunta 2 (1).png" alt="nivel3">
+<p>Missão química: identifique se é corrosivo, não corrosivo ou +H₂O!</p>
+
+<!-- Bixinho -->
+<div id="bixinho-triste" class="bixinho">
+    <img src="./assets/bixinho-popup.png" alt="Bixinho triste" id="bixinho-img" />
+</div>
+
+<!-- Popup de dica -->
+<div id="popup" class="popup">
+    <div class="popup-caixa">
+        <span id="fecharPopup" class="fechar">&times;</span>
+        <h2 class="h2-bixin">Explicação</h2>
+        <p class="popup-text"></p>
+    </div>
+</div>
+
+<!-- Popup temporário (5 segundos) -->
+<div id="popup-temporario" class="popup">
+    <div class="popup-5s">
+        <div class="estrela1"><img src="./assets/image 20 (1).png" alt=""></div>
+        <p>Uau! Você conquistou o último nível! Vitória total!</p>
+    </div>
+</div>
+
+<!-- Popup final -->
+<div id="popup-final" class="popup">
+    <canvas id="fireworksCanvas"></canvas>
+    <div class="popup-caixa">
+        <div class="estrela">
+            <img src="./assets/Imagem do WhatsApp de 2025-06-10 à(s) 00.55.49_d7ddc703 1.png" alt="">
+        </div>
+        <p id="mensagem-final">Missão concluída! Você finalizou todos os desafios!</p>
+        <p id="mensagem-final2">Quer jogar novamente?</p>
+        <div class="botoes">
+            <button id="btnNao">NÃO</button>
+            <button id="btnSim">SIM</button>
+        </div>
+    </div>
+</div>
+
+<!-- Popup de erro -->
+<div id="popup-erro" class="popup">
+    <div class="popup-caixa">
+        <div class="estrela">
+            <img src="./assets/image 22 (1).png" alt="estrela branca">
+        </div>
+        <p id="mensagem-erro">Não foi dessa vez… Levante-se e tente novamente!</p>
+        <p id="mensagem-erro2">Deseja tentar novamente?</p>
+        <div class="botoes">
+            <button id="btnErroSim">SIM</button>
+            <button id="btnErroNao">NÃO</button>
+        </div>
+    </div>
+</div>
+
+<div class="compostos" id="compostos">
+    <div class="composto" draggable="true" data-tipo="base">HCl</div>
+    <div class="composto" draggable="true" data-tipo="ácido">NaCl</div>
+    <div class="composto" draggable="true" data-tipo="óxido">CO₂</div>
+    <div class="composto" draggable="true" data-tipo="óxido">SO₂</div>
+</div>
+
+<div class="categorias">
+    <div class="categoria" data-tipo="ácido"><h3>Não corrosivos</h3></div>
+    <div class="categoria" data-tipo="base"><h3>Corrosivos</h3></div>
+    <div class="categoria" data-tipo="óxido"><h3>composto + H₂O</h3></div>
+</div>
+
+<div class="progress-bar">
+    <div class="progress" id="progress"></div>
+</div>
+
+<script src="nivel3.js"></script>
+</body>
+</html>

@@ -1,0 +1,330 @@
+/* ----------------- Corpo e header ----------------- */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #31174D, #000000);
+    color: #fff;
+    text-align: center;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ----------------- Texto e imagens ----------------- */
+p {
+    margin: 20px 0;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 5rem;
+}
+
+/* ----------------- Compostos ----------------- */
+.compostos {
+    display: flex;
+    justify-content: center;
+    gap: 103px;
+}
+
+.composto {
+    background: #652d90;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 36px;
+    font-weight: 400;
+    cursor: grab;
+    user-select: none;
+    color: #ffcc00;
+    margin-top: 4rem;
+    width: 183px;
+}
+
+/* Para compostos dentro da categoria +H2O */
+.categoria[data-tipo="óxido"] .composto {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 160px;
+}
+
+/* ----------------- Categorias ----------------- */
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 101px;
+    margin: 50px 0;
+}
+
+.categoria {
+    background: #c8b6d9;
+    color: #2b0c46;
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 36px;
+    font-weight: 400;
+    width: 321px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.4s;
+}
+
+.categoria h3 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    color: #2b0c46;
+    font-weight: bold;
+}
+
+.categoria.over {
+    outline: 2px dashed #ffcc00;
+}
+
+.categoria.correto {
+    background: #28a745 !important;
+    color: #fff;
+}
+
+.categoria.errado {
+    background: #dc3545 !important;
+    color: #fff;
+}
+
+/* ----------------- Barra de progresso ----------------- */
+.progress-bar {
+    width: 90%;
+    height: 50px;
+    margin-top: 12rem;
+    margin-left: 6rem;
+    background: #4b1972;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #ffcc00;
+    transition: width 0.3s;
+}
+
+/* ----------------- Bixinho ----------------- */
+.bixinho {
+    position: absolute;
+    top: 150px;
+    left: 40rem;
+    width: 120px;
+    transition: opacity 0.10s;
+    display: none;
+}
+
+.bixinho img {
+    width: 100%;
+}
+
+/* ----------------- Popups gerais ----------------- */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* ----------------- Popup de dica (NÃO ALTERADO) ----------------- */
+#popup .popup-caixa {
+    width: 500px;
+    height: auto;
+    background: #6F4A8E; /* roxo escuro */
+    color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+}
+
+#popup .h2-bixin {
+    color: #ffcc00;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#popup .popup-text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.4;
+    margin-top: 10px;
+}
+
+#popup .fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ----------------- Popup temporário (passagem de nível) ----------------- */
+#popup-temporario .popup-5s {
+    width: 600px;
+    height: 500px;
+    background: #D4CADF;
+    color: #522780;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#popup-temporario .popup-5s img {
+    width: 200px;
+    height: 192px;
+}
+
+#popup-temporario .popup-5s p {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+/* ----------------- Popup final ----------------- */
+#popup-final .popup-caixa {
+    width: 1500px;
+    height: 700px;
+    max-width: 95%;
+    background: #D5CBE0;
+    color: #2b0c46;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+    text-align: center;
+    position: relative;
+}
+
+#popup-final .estrela img {
+    width: 459px;
+    height: 206px;
+    margin-bottom: 20px;
+}
+
+#mensagem-final{
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #522780;
+    font-weight: bold;
+}
+
+#mensagem-final2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #522780;
+    
+}
+
+/* ----------------- Popup de erro ----------------- */
+#popup-erro .popup-caixa {
+    width: 1500px;
+    height: 700px;
+    max-width: 95%;
+    background: #D4CADF;
+    color: #522780;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+#popup-erro .estrela img {
+    width: 120px;
+    margin-bottom: 20px;
+}
+
+#mensagem-erro, #mensagem-erro2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #522780;
+    font-weight: bold;
+}
+
+/* ----------------- Botões dos popups ----------------- */
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 2rem;
+}
+
+.botoes button {
+    background: #522780;
+    border: none;
+    color: #F2BD33;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+    height: 75px;
+    width: 200px;
+}
+
+.botoes button:hover {
+    opacity: 0.85;
+}
+
+/* ----------------- Canvas Fogos ----------------- */
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* ----------------- Responsividade ----------------- */
+@media (max-width: 1600px) {
+    /* Popup temporário */
+    #popup-temporario .popup-5s {
+        width: 90%;
+    }
+
+    /* Popup final e erro */
+    #popup-final .popup-caixa,
+    #popup-erro .popup-caixa {
+        width: 90%;
+        height: 80%;
+        padding: 20px;
+    }
+
+    #mensagem-final, #mensagem-final2,
+    #mensagem-erro, #mensagem-erro2 {
+        font-size: 28px;
+    }
+
+    .botoes {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .botoes button {
+        width: 150px;
+        height: 60px;
+        font-size: 20px;
+        margin-top: 2rem;
+    }
+}
