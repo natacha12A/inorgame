@@ -7,7 +7,8 @@ body {
   height: 100vh;
 }
 
-header {
+@media (min-width: 769px) and (max-width: 1200px){
+  header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -130,16 +131,18 @@ p {
 .progress-bar {
   width: 90%;
   height: 50px;
+  margin-top: 0;
   margin-left: 6rem;
   background: #4b1972;
   border-radius: 30px;
-  overflow: hidden;
+  
 }
 .progress {
   height: 100%;
   width: 0%;
   background: #ffcc00;
   transition: width 0.3s;
+  margin-top: 2rem;
 }
 
 .bixinho {
@@ -248,4 +251,6 @@ p {
 }
 .botoes button:hover {
   opacity: 0.85;
+}
+
 }

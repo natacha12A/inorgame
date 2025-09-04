@@ -8,7 +8,8 @@ body {
     height: 100vh;
 }
 
-header {
+@media (min-width: 769px) and (max-width: 1200px){
+    header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,7 +99,7 @@ p {
 .progress-bar {
     width: 90%;
     height: 50px;
-    margin-top: 12rem;
+    margin-top: 6rem;
     margin-left: 6rem;
     background: #4b1972;
     border-radius: 30px;
@@ -140,7 +141,7 @@ p {
     z-index: 999;
 }
 
-/* ----------------- Popup de dica (NÃO ALTERADO) ----------------- */
+/* ----------------- Popup de dica ----------------- */
 #popup .popup-caixa {
     width: 500px;
     height: auto;
@@ -153,10 +154,22 @@ p {
     position: relative;
 }
 
+/* Agrupar h2 + img lado a lado */
 #popup .h2-bixin {
     color: #ffcc00;
     font-size: 30px;
     font-weight: bold;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* espaço entre h2 e o bixinho */
+}
+
+/* Bixinho ao lado do título */
+#popup .popup-caixa img {
+    width: 80px;
+    height: auto;
+    vertical-align: middle;
 }
 
 #popup .popup-text {
@@ -327,4 +340,6 @@ p {
         font-size: 20px;
         margin-top: 2rem;
     }
+}
+
 }

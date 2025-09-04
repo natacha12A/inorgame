@@ -20,18 +20,14 @@ let erros = 0;
 const total = compostos.length; 
 
 const mensagensDica = {
-  ácido: "HCl é um Ácido. Ácidos em solução aquosa liberam íons H⁺.",
-  base: "Mg(OH)₂ é uma Base. Bases liberam íons OH⁻ em solução aquosa.",
-  sal: "NaCl é um Sal. Sais são compostos iônicos formados pela neutralização.",
-  óxido: "CO₂ é um Óxido. Ex: CO₂ + H₂O → H₂CO₃."
+  ácido: "(HCl): substância que em água libera íons H⁺, deixando o ambiente corrosivo. Ex.: HCl no estômago ajuda a digerir alimentos.",
+  base: "(Mg(OH)₂): substância que em água libera íons OH⁻, neutralizando ácidos. Ex.: antiácidos usam Mg(OH)₂ para reduzir azia.",
+  sal: "(NaCl): composto formado pela reação de um ácido com uma base. É estável, não corrosivo, e forma cristais como o sal de cozinha.",
+  óxido: "(CO₂): composto de oxigênio com outro elemento. Alguns óxidos, como o CO₂, reagem com água formando ácidos (CO₂ + H₂O → H₂CO₃)."
 };
 
+// 🔹 só mantemos o dragstart
 compostos.forEach(composto => {
-  composto.addEventListener("click", () => {
-    const tipo = composto.dataset.tipo;
-    popupText.textContent = mensagensDica[tipo] || "Sem dica para este composto.";
-    popup.style.display = "flex";
-  });
   composto.addEventListener("dragstart", dragStart);
 });
 
@@ -87,6 +83,12 @@ function drop(e) {
     this.classList.add("errado");
     erros++;
     bixinho.style.display = "block";
+
+    // 🔹 Exibe popup de explicação no erro
+    const tipoErrado = compostoEl.dataset.tipo;
+    popupText.textContent = mensagensDica[tipoErrado] || "Sem dica para este composto.";
+    popup.style.display = "flex";
+
     setTimeout(() => {
       this.classList.remove("errado");
       bixinho.style.display = "none";

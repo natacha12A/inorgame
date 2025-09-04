@@ -5,14 +5,8 @@ body {
   background: linear-gradient(to bottom, #31174D, #000000);
   color: #fff;
   text-align: center;
-  height: 100vh;
-
-  /* Flex para colocar compostos e categorias lado a lado */
-  display: flex;
-  justify-content: center;   /* centraliza horizontalmente */
-  align-items: flex-start;   /* alinha pelo topo */
-  gap: 100px;                /* espaço entre compostos e categorias */
-  flex-wrap: wrap;           /* permite quebrar linha se necessário */
+  min-height: 100vh;
+  position: relative;
 }
 
 /* === Header === */
@@ -71,13 +65,27 @@ header {
   border-radius: 8px;
 }
 
-/* === Composto === */
-.compostos {
+/* === Container flexível apenas para compostos e categorias === */
+body > .compostos, body > .categorias {
   display: flex;
   flex-direction: column;
-  gap: 20px;  /* espaço entre cada composto */
+  gap: 20px;
 }
 
+/* Cria um container flexível apenas visualmente para lado a lado */
+body > .compostos {
+  float: left;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+
+body > .categorias {
+  float: left;
+  margin-left: 5%;
+  margin-top: 10%;
+}
+
+/* === Composto === */
 .composto {
   background: #652d90;
   padding: 15px 25px;
@@ -91,16 +99,10 @@ header {
 }
 
 /* === Categorias === */
-.categorias {
-  display: flex;
-  flex-direction: row;  /* mantém duas colunas lado a lado */
-  gap: 50px;
-}
-
 .categorias2, .categorias3 {
   display: flex;
   flex-direction: column;
-  gap: 20px;  /* espaço entre categorias da coluna */
+  gap: 20px;
 }
 
 .categoria {
@@ -117,6 +119,14 @@ header {
   align-items: center;
   transition: background 0.4s;
 }
+
+/* Mantém as colunas internas com direção vertical */
+.categorias2, .categorias3 {
+  display: flex;
+  
+  gap: 20px; /* espaço entre categorias dentro da coluna */
+}
+
 
 .categoria.over {
   outline: 2px dashed #ffcc00;
@@ -136,7 +146,7 @@ header {
 .progress-bar {
   width: 90%;
   height: 50px;
-  margin-left: 6rem;
+  margin: 50px auto 0 auto;
   background: #4b1972;
   border-radius: 30px;
   overflow: hidden;
@@ -163,26 +173,7 @@ header {
 }
 
 /* === Popups === */
-.popup {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
 .popup-content {
-  background: #6F4A8E;
-  color: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  text-align: center;
-  width: 400px;
-  max-width: 90%;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
   position: relative;
 }
 
