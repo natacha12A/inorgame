@@ -3,9 +3,6 @@ const categorias = document.querySelectorAll(".categoria");
 const progress = document.getElementById("progress");
 const bixinho = document.getElementById("bixinho-triste");
 
-const popup = document.getElementById("popup");
-const fecharPopup = document.getElementById("fecharPopup");
-const popupText = document.querySelector(".popup-text");
 const popupFinal = document.getElementById("popup-final");
 const popupErro = document.getElementById("popup-erro");
 const popupTemporario = document.getElementById("popup-temporario");
@@ -15,18 +12,40 @@ const btnErroNao = document.getElementById("btnErroNao");
 const btnSim = document.getElementById("btnSim");
 const btnNao = document.getElementById("btnNao");
 
+// Seleciona a logo e o popup da logo
+const logo = document.querySelector("header img");
+const popupLogo = document.getElementById("popup-logo");
+const btnLogoSim = document.getElementById("btnLogoSim");
+const btnLogoNao = document.getElementById("btnLogoNao");
+
+// Abre popup ao clicar na logo
+logo.addEventListener("click", () => {
+  popupLogo.style.display = "flex";
+});
+
+// Botão SIM: volta para o menu (ou pode recarregar a página principal)
+btnLogoSim.addEventListener("click", () => {
+  window.location.href = "./index.html"; // ou outra página de menu
+});
+
+// Botão NÃO: fecha o popup
+btnLogoNao.addEventListener("click", () => {
+  popupLogo.style.display = "none";
+});
+
+// Fecha o popup ao clicar fora da caixa
+window.addEventListener("click", (e) => {
+  if (e.target === popupLogo) {
+    popupLogo.style.display = "none";
+  }
+});
+
+
 let acertos = 0;
 let erros = 0;
 const total = compostos.length; 
 
-const mensagensDica = {
-  ácido: "(HCl): substância que em água libera íons H⁺, deixando o ambiente corrosivo. Ex.: HCl no estômago ajuda a digerir alimentos.",
-  base: "(Mg(OH)₂): substância que em água libera íons OH⁻, neutralizando ácidos. Ex.: antiácidos usam Mg(OH)₂ para reduzir azia.",
-  sal: "(NaCl): composto formado pela reação de um ácido com uma base. É estável, não corrosivo, e forma cristais como o sal de cozinha.",
-  óxido: "(CO₂): composto de oxigênio com outro elemento. Alguns óxidos, como o CO₂, reagem com água formando ácidos (CO₂ + H₂O → H₂CO₃)."
-};
-
-// 🔹 só mantemos o dragstart
+// 🔹 Eventos de arrastar
 compostos.forEach(composto => {
   composto.addEventListener("dragstart", dragStart);
 });
@@ -42,8 +61,14 @@ function dragStart(e) {
   e.target.classList.add("dragging");
 }
 
-function dragOver(e) { e.preventDefault(); this.classList.add("over"); }
-function dragLeave(e) { this.classList.remove("over"); }
+function dragOver(e) { 
+  e.preventDefault(); 
+  this.classList.add("over"); 
+}
+
+function dragLeave(e) { 
+  this.classList.remove("over"); 
+}
 
 function drop(e) {
   e.preventDefault();
@@ -52,7 +77,9 @@ function drop(e) {
   const compostoEl = document.querySelector(".dragging");
 
   if (this.dataset.tipo === tipo) {
+    // ACERTO
     this.classList.add("correto");
+
     if (this.dataset.tipo === "óxido") {
       if (!this.armazenados) this.armazenados = [];
       const clone = compostoEl.cloneNode(true);
@@ -80,14 +107,15 @@ function drop(e) {
       }, 600);
     }
   } else {
+    // ERRO
     this.classList.add("errado");
     erros++;
     bixinho.style.display = "block";
 
-    // 🔹 Exibe popup de explicação no erro
-    const tipoErrado = compostoEl.dataset.tipo;
-    popupText.textContent = mensagensDica[tipoErrado] || "Sem dica para este composto.";
-    popup.style.display = "flex";
+    const compostoNome = compostoEl.dataset.composto;
+
+    // 🔹 Mostra popup do composto correspondente
+    mostrarPopupComposto(compostoNome);
 
     setTimeout(() => {
       this.classList.remove("errado");
@@ -121,6 +149,22 @@ function mostrarPopupFinalComFogos() {
   canvas.height = popupFinal.offsetHeight;
   iniciarFogosChamativos(canvas);
 }
+
+// ---------------- Popups de composto ----------------
+function mostrarPopupComposto(compostoNome) {
+  const popup = document.getElementById(`popup-${compostoNome}`);
+  if (popup) popup.style.display = "flex";
+}
+
+function fecharPopup(id) {
+  const popup = document.getElementById(id);
+  if (popup) popup.style.display = "none";
+}
+
+// Fecha popup ao clicar fora
+window.addEventListener("click", (e) => {
+  if(e.target.classList.contains("popup")) e.target.style.display = "none";
+});
 
 // ---------------- Fogos ----------------
 let intervalFogos;
@@ -167,7 +211,7 @@ function iniciarFogosChamativos(canvas) {
   }
 
   function hexToRgb(hex){
-    hex = hex.replace("#","");
+    hex = hex.replace("#",""); 
     const bigint = parseInt(hex,16);
     const r = (bigint>>16)&255;
     const g = (bigint>>8)&255;
@@ -179,13 +223,13 @@ function iniciarFogosChamativos(canvas) {
   animar();
 }
 
-function pararFogos(){ clearInterval(intervalFogos); }
+function pararFogos(){ 
+  clearInterval(intervalFogos); 
+}
 
-fecharPopup.addEventListener("click", () => popup.style.display = "none");
-window.addEventListener("click", (e) => { if(e.target===popup) popup.style.display="none"; });
-
+// ---------------- Eventos popups finais ----------------
 btnErroSim.addEventListener("click", () => location.reload());
 btnErroNao.addEventListener("click", () => popupErro.style.display="none");
 
 btnSim.addEventListener("click", () => location.reload());
-btnNao.addEventListener("click", () => popupFinal.style.display="none");
+btnNao.addEventListener("click", () => popupFinal.style.display = "none");

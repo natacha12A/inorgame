@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="./nivel3/nivel3.css">
+<title>INORGAME</title>
+</head>
+<body>
+<header>
+        <img src="./assets/logo clara (1).png" alt="logo" id="logo">
+</header>
+
+<!-- Popup da logo -->
+<div id="popup-logo" class="popup">
+  <div class="popup-content">
+    <h2>Deseja voltar para o menu?</h2>
+    <img src="./assets/bixinho-popup.png" alt="" class="bixin">
+    <div class="botoesLogo">
+      <button id="btnLogoSim">SIM</button>
+      <button id="btnLogoNao">NÃO</button>
+    </div>
+  </div>
+</div>
+
+<div class="p">
+    <img src="./assets/pergunta 2 (1).png" alt="nivel3">
+    <p>Missão química: identifique se é corrosivo, não corrosivo ou +H₂O!</p>   
+</div>
+
+<div id="bixinho-triste" class="bixinho"></div>
+
+<!-- Popups de cada composto -->
+<!-- Popup HCl -->
+<div id="popup-HCl" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-HCl')">&times;</span>
+        <div class="h2-bixin">
+            <h2>Explicação</h2>
+            <img src="./assets/bixinho-popup.png" alt="Bixinho HCl">
+        </div>
+        <p>(HCl): substância que em água libera íons H⁺, deixando o ambiente corrosivo. Ex.: HCl no estômago ajuda a digerir alimentos.</p>
+    </div>
+</div>
+
+<!-- Popup NaCl -->
+<div id="popup-NaCl" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-NaCl')">&times;</span>
+        <div class="h2-bixin">
+            <h2>Explicação</h2>
+            <img src="./assets/bixinho-popup.png" alt="Bixinho NaCl">
+        </div>
+        <p>(NaCl): composto formado pela reação de um ácido com uma base. É estável, não corrosivo, e forma cristais como o sal de cozinha.</p>
+    </div>
+</div>
+
+<!-- Popup CO2 -->
+<div id="popup-CO2" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-CO2')">&times;</span>
+        <div class="h2-bixin">
+            <h2>Explicação</h2>
+            <img src="./assets/bixinho-popup.png" alt="Bixinho CO2">
+        </div>
+        <p>(CO₂): composto de oxigênio com outro elemento. Reage com água formando ácido carbônico (CO₂ + H₂O → H₂CO₃).</p>
+    </div>
+</div>
+
+<!-- Popup SO2 -->
+<div id="popup-SO2" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-SO2')">&times;</span>
+        <div class="h2-bixin">
+            <h2>Explicação</h2>
+            <img src="./assets/bixinho-popup.png" alt="Bixinho SO2">
+        </div>
+        <p>(SO₂): óxido ácido que em contato com água forma ácido sulfuroso (SO₂ + H₂O → H₂SO₃). Pode irritar vias respiratórias e causar chuva ácida.</p>
+    </div>
+</div>
+
+
+
+<!-- Popup temporário -->
+<div id="popup-temporario" class="popup">
+  <div class="popup-5s">
+    <div class="estrela1"><img src="./assets/star.png" alt=""></div>
+    <p>Uau! Você conquistou o último nível! Vitória total!</p>
+  </div>
+</div>
+
+<!-- Popup final -->
+<div id="popup-final" class="popup">
+  <canvas id="fireworksCanvas"></canvas>
+  <div class="popup-caixa">
+    <div class="estrela"><img src="./assets/trofel.png" alt=""></div>
+    <p id="mensagem-final">Missão concluída! Você finalizou todos os desafios!</p>
+    <p id="mensagem-final2">Quer jogar novamente?</p>
+    <div class="botoes-final">
+      <button id="btnNao">NÃO</button>
+      <button id="btnSim">SIM</button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup de erro geral -->
+<div id="popup-erro" class="popup">
+  <div class="popup-caixa">
+    <div class="radioativo"><img src="./assets/ChatGPT Image 7 de set. de 2025, 21_25_13.png" alt="radioativo"></div>
+    <p id="mensagem-erro">Não foi dessa vez… Levante-se e tente novamente!</p>
+    <p id="mensagem-erro2">Deseja tentar novamente?</p>
+    <div class="botoes">
+      <button id="btnErroSim">SIM</button>
+      <button id="btnErroNao">NÃO</button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup HCl -->
+<div id="popup-HCl" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-HCl')">&times;</span>
+        <h2>Explicação</h2>
+        <p>(HCl): substância que em água libera íons H⁺, deixando o ambiente corrosivo. Ex.: HCl no estômago ajuda a digerir alimentos.</p>
+    </div>
+</div>
+
+<!-- Popup NaCl -->
+<div id="popup-NaCl" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-NaCl')">&times;</span>
+        <h2>Explicação</h2>
+        <p>(NaCl): composto formado pela reação de um ácido com uma base. É estável, não corrosivo, e forma cristais como o sal de cozinha.</p>
+    </div>
+</div>
+
+<!-- Popup CO2 -->
+<div id="popup-CO2" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-CO2')">&times;</span>
+        <h2>Explicação</h2>
+        <p>(CO₂): composto de oxigênio com outro elemento. Reage com água formando ácido carbônico (CO₂ + H₂O → H₂CO₃).</p>
+    </div>
+</div>
+
+<!-- Popup SO2 -->
+<div id="popup-SO2" class="popup">
+    <div class="popup-caixa">
+        <span class="fechar" onclick="fecharPopup('popup-SO2')">&times;</span>
+        <h2>Explicação</h2>
+        <p>(SO₂): óxido ácido que em contato com água forma ácido sulfuroso (SO₂ + H₂O → H₂SO₃). Pode irritar vias respiratórias e causar chuva ácida.</p>
+    </div>
+</div>
+
+
+<div class="compostos" id="compostos">
+   <div class="composto" draggable="true" data-tipo="base" data-composto="HCl">HCl</div>
+   <div class="composto" draggable="true" data-tipo="ácido" data-composto="NaCl">NaCl</div>
+   <div class="composto" draggable="true" data-tipo="óxido" data-composto="CO2">CO₂</div>
+   <div class="composto" draggable="true" data-tipo="óxido" data-composto="SO2">SO₂</div>
+</div>
+
+<div class="categorias">
+  <div class="categoria" data-tipo="ácido"><h2>Não corrosivos</h2></div>
+  <div class="categoria" data-tipo="base"><h2>Corrosivos</h2></div>
+  <div class="categoria" data-tipo="óxido"><h2>Composto + H₂O</h2></div>
+</div>
+
+<div class="progress-bar">
+  <div class="progress" id="progress"></div>
+</div>
+
+<script src="./nivel3/nivel3.js"></script>
+</body>
+</html>

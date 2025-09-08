@@ -1,0 +1,275 @@
+/* ================= GLOBAL ================= */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+    --dark-purple: #0D0614;
+    --medium-purple: #2C1344;
+    --normal-purple: #4A2073;
+    --highlight-purple: #522780;
+    --highlight-purple-opacity: rgba(84, 41, 130, 0.5);
+    --yellow: #FEC800;
+}
+
+/* ---------------- BODY ---------------- */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at top, #3e1a66, #000000 80%);
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Estrelas no fundo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.3;
+    animation: moveStars 50s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 1000px 1000px; }
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: none; /* transparente */
+}
+
+/* Logo */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo {
+    height: 62.94px;
+    width: 229px;
+    cursor: pointer;
+}
+
+/* Menu principal */
+.navbar ul.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navbar ul.menu > li {
+    position: relative;
+}
+
+.navbar ul.menu > li > a {
+    display: block;
+    padding: 1rem 1.2rem;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar ul.menu > li > a:hover {
+    color: var(--yellow);
+}
+
+/* Dropdown */
+ul.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--highlight-purple);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1200;
+}
+
+ul.dropdown li a {
+    padding: 0.8rem 1.2rem;
+    display: block;
+    font-size: 1rem;
+    white-space: nowrap;
+    color: white;
+    transition: background 0.3s;
+}
+
+ul.dropdown li a:hover {
+    background: var(--highlight-purple-opacity);
+}
+
+.navbar ul.menu li:hover > ul.dropdown {
+    display: block;
+}
+
+/* About us alinhado com menu */
+.about {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.about-img {
+    width: 4rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.1);
+}
+
+/* ================= POPUP ================= */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.65);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup.ativo {
+    display: flex;
+}
+
+.popup-content {
+    background: linear-gradient(180deg, #6F4A8E, #45285d);
+    color: #fff;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    width: 420px;
+    max-width: 90%;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.4);
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+#popup-logo h2 {
+    font-size: 34px;
+    color: #FEC800;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.bixin {
+    height: 140px;
+    margin: 1rem auto;
+    display: block;
+}
+
+.botoesLogo {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 2rem;
+}
+
+.botoesLogo button {
+    height: 50px;
+    width: 110px;
+    cursor: pointer;
+    background: linear-gradient(90deg, #F2BD33, #e1a81f);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.botoesLogo button:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: linear-gradient(90deg, #FFD84A, #F2BD33);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+}
+
+/* ================= QUADRADO (CARD) ================= */
+.quadrado {
+    position: relative;
+    z-index: 1;
+    width: 65rem;
+    height: 30rem;
+    background: linear-gradient(145deg, #d4cadf, #eae6f0);
+    border-radius: 40px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8rem; /* empurra para baixo da navbar */
+}
+
+.quadrado img {
+    width: 20rem;
+    margin-bottom: 1.5rem;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+}
+
+.quadrado p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2a0952;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.btn-play {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 160px;
+    background: linear-gradient(to right, #f2bd33, #ffda63);
+    color: #2a0952;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.btn-play:hover {
+    transform: scale(1.1);
+    background: linear-gradient(to right, #FFD84A, #F2BD33);
+}

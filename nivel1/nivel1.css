@@ -1,0 +1,358 @@
+/* ================== FUNDO COM ESTRELAS ================== */
+body {
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at top, #3e1a66, #000000 80%);
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+    color: #fff;
+    max-width: 100%;
+}
+
+/* Estrelas no fundo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    animation: moveStars 50s linear infinite;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+/* ================== HEADER ================== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    max-width: 1600px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+#logo {
+    font-size: 2.5rem;
+    color: #ffcc00;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* ================== POPUPS ================== */
+.popup {
+    display: none; /* invisível inicialmente */
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(180deg, #6F4A8E, #45285d);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.4);
+    position: relative;
+    gap: 1rem;
+    animation: scaleIn 0.3s ease;
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.h2-bixin {
+    font-size: 2rem;
+    color: #ffcc00;
+    margin: 0;
+}
+
+.bixin-popup {
+    max-width: 70px;
+    height: auto;
+}
+
+.popup-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.fechar {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.fechar:hover {
+    color: #FEC800;
+    transform: rotate(90deg);
+}
+
+/* ================== POPUP LOGO ================== */
+#popup-logo h2 {
+    font-size: 2rem;
+    color: #FEC800;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.bixin {
+    max-height: 140px;
+    margin: 1rem auto;
+}
+
+.botoesLogo {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.botoesLogo button {
+    height: 3rem;
+    width: 8rem;
+    max-width: 90%;
+    cursor: pointer;
+    background: linear-gradient(90deg, #F2BD33, #e1a81f);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.375rem 0.75rem rgba(0,0,0,0.25);
+}
+
+.botoesLogo button:hover {
+    transform: translateY(-0.2rem) scale(1.05);
+    background: linear-gradient(90deg, #FFD84A, #F2BD33);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.35);
+}
+
+/* ================== COMPOSTOS & CATEGORIAS ================== */
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: 'Montsserrat';
+}
+
+.compostos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1400px;
+    margin: 4rem auto 0 auto;
+    margin-top: 2rem;
+}
+
+.composto {
+    background: #652d90;
+    padding: 1rem 2rem;
+    border-radius: 0.625rem;
+    font-size: 1.5rem;
+    color: #ffcc00;
+    cursor: grab;
+    user-select: none;
+    max-width: 180px;
+    width: 100%;
+    text-align: center;
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem 0;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1400px;
+    max-height: 30rem;
+}
+
+.categoria {
+    background: #c8b6d9;
+    color: #2b0c46;
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+    max-width: 180px;
+    width: 100%;
+    height: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s;
+}
+
+.conteudo{
+    margin-top: 0;
+}
+
+.categoria.over { outline: 2px dashed #ffcc00; }
+.categoria.correto { background: #28a745 !important; color: #fff; }
+.categoria.errado { background: #dc3545 !important; color: #fff; }
+
+/* ================== PROGRESS BAR ================== */
+.progress-bar {
+    width: 90%;
+    max-width: 1200px;
+    height: 3rem;
+    margin: 3rem auto 0 auto;
+    background: #4b1972;
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #ffcc00;
+    transition: width 0.3s;
+}
+
+/* ================== POPUP FINAL & ERRO ================== */
+.popup-caixa {
+    background: #d8cce8;
+    color: #2b0c46;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 700px;
+    text-align: center;
+    box-shadow: 0 0 1.25rem rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.popup .estrela img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+#mensagem-final, #mensagem-erro {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+#mensagem-final2, #mensagem-erro2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* ================== BOTÕES ================== */
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.botoes button {
+    background: #522780;
+    border: none;
+    color: #F2BD33;
+    padding: 0.75rem 2rem;
+    border-radius: 0.625rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    height: 4.5rem;
+    width: 200px;
+    max-width: 90%;
+}
+
+.botoes button:hover {
+    opacity: 0.85;
+}
+
+/* ================== POPUP FINAL CENTRALIZADO ================== */
+#popup-final {
+    display: none;
+    justify-content: center; 
+    align-items: center;
+}
+
+#popup-final .popup-caixa {
+    background: #d8cce8;
+    z-index: 2;
+}
+
+/* ================== CANVAS FOGOS ================== */
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ================== MEDIA QUERIES PARA TELA PEQUENA ================== */
+@media (max-width: 768px) {
+    .composto, .categoria {
+        font-size: 1.2rem;
+        max-width: 140px;
+        padding: 0.75rem 1rem;
+    }
+    .botoes button, .botoesLogo button {
+        font-size: 1rem;
+        height: 3rem;
+        padding: 0.5rem 1rem;
+    }
+    #mensagem-final, #mensagem-erro,
+    #mensagem-final2, #mensagem-erro2 {
+        font-size: 1.5rem;
+    }
+}

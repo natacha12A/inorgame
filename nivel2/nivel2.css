@@ -1,0 +1,393 @@
+/* === Corpo e layout principal === */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: radial-gradient(circle at top, #3e1a66, #000000 80%);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    position: relative;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Estrelas no fundo */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+    animation: moveStars 50s linear infinite;
+}
+
+@keyframes moveStars {
+    from { background-position: 0 0; }
+    to { background-position: 1000px 1000px; }
+}
+
+/* === Header === */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    width: 100%;
+    max-width: 1600px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1;
+}
+
+#logo {
+    height: auto;
+    max-height: 63px;
+    max-width: 100%;
+    cursor: pointer;
+}
+
+/* Texto principal */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0;
+    font-family: 'Montsserrat';
+    max-width: 90%;
+    margin-top: 0;
+    margin-left: 2rem;
+}
+
+#nivel2 {
+    position: relative;
+    top: -30px; /* sobe a imagem 30px */
+}
+
+
+/* === Popup da logo === */
+#popup-logo {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+
+    
+}
+
+#popup-logo .popup-content {
+    background: linear-gradient(180deg, #6F4A8E, #45285d);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.4);
+    animation: scaleIn 0.3s ease;
+    
+}
+
+#popup-logo h2 {
+    font-size: 2rem;
+    color: #FEC800;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: 'Montsserrat';
+}
+
+#popup-logo .bixin {
+    max-height: 140px;
+    width: auto;
+    margin: 1rem auto;
+    display: block;
+}
+
+.botoesLogo {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.botoesLogo button {
+    height: 3rem;
+    width: 8rem;
+    max-width: 90%;
+    cursor: pointer;
+    background: linear-gradient(90deg, #F2BD33, #e1a81f);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0.375rem 0.75rem rgba(0,0,0,0.25);
+}
+
+.botoesLogo button:hover {
+    transform: translateY(-0.2rem) scale(1.05);
+    background: linear-gradient(90deg, #FFD84A, #F2BD33);
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.35);
+}
+
+/* === Popups gerais === */
+.popup, #popup, #popup-final, #popup-erro {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.popup-content {
+    position: relative;
+}
+
+#popup .popup-content {
+    background: #6F4A8E;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.h2-bixin {
+    font-size: 2rem;
+    color: #ffcc00;
+    font-family: 'Montsserrat';
+}
+
+.bixin-popup {
+    max-width: 70px;
+    height: auto;
+}
+
+.popup-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.fechar {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.fechar:hover {
+    color: #FEC800;
+    transform: rotate(90deg);
+}
+
+/* === Container horizontal para compostos e categorias === */
+.jogo-container {
+     display: flex;          /* ativa o flexbox */
+    gap: 20rem;   
+    align-items: center;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1400px;
+    margin: 5rem auto 0 auto;
+    margin-top: 2rem;
+}
+
+/* === Composto === */
+.compostos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+    gap: 1rem;
+    width: auto;
+}
+
+.composto {
+    background: #652d90;
+    padding: 1rem 2rem;
+    border-radius: 0.625rem;
+    font-size: 1.5rem;
+    cursor: grab;
+    user-select: none;
+    color: #ffcc00;
+    width: 100%;
+    max-width: 180px;
+    text-align: center;
+}
+
+/* === Categorias === */
+.categorias {
+    display: flex;
+    
+    gap: 2rem;
+    width: auto;
+}
+
+.categorias2, .categorias3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.categoria {
+    background: #c8b6d9;
+    color: #2b0c46;
+    padding: 1.5rem 2rem;
+    border-radius: 0.75rem;
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 180px;
+    max-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.4s;
+}
+
+.categoria.over { outline: 2px dashed #ffcc00; }
+.categoria.correto { background: #28a745 !important; color: #fff; }
+.categoria.errado { background: #dc3545 !important; color: #fff; }
+
+/* === Progress bar === */
+.progress-bar {
+    width: 90%;
+    max-width: 1200px;
+    height: 3rem;
+    margin: 3rem auto 0 auto;
+    background: #4b1972;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #ffcc00;
+    transition: width 0.3s;
+}
+
+/* === Bixinho === */
+.bixinho {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    max-width: 120px;
+    transition: opacity 0.10s;
+}
+
+.bixinho img {
+    width: 100%;
+}
+
+/* === Popups e botões === */
+.popup-caixa {
+    background: #d8cce8;
+    color: #2b0c46;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    width: 90%;
+    max-width: 800px;
+    max-height: 700px;
+    text-align: center;
+    box-shadow: 0 0 1.25rem rgba(0,0,0,0.5);
+}
+
+#popup-erro .popup-caixa {
+    background: #d8cce8;
+    color: #522780;
+}
+
+.popup .estrela img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+#mensagem-final, #mensagem-erro,
+#mensagem-final2, #mensagem-erro2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.botoes button {
+    background: #522780;
+    border: none;
+    color: #F2BD33;
+    padding: 0.75rem 2rem;
+    border-radius: 0.625rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    height: 4.5rem;
+    width: 200px;
+    max-width: 90%;
+}
+
+.botoes button:hover { opacity: 0.85; }
+
+/* Canvas fogos */
+#fireworksCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+    .composto, .categoria {
+        font-size: 1.2rem;
+        max-width: 140px;
+        padding: 0.75rem 1rem;
+    }
+    .botoes button, .botoesLogo button {
+        font-size: 1rem;
+        height: 3rem;
+        padding: 0.5rem 1rem;
+    }
+    #mensagem-final, #mensagem-erro,
+    #mensagem-final2, #mensagem-erro2 { font-size: 1.5rem; }
+    .bixinho { left: 50%; transform: translateX(-50%); }
+    .jogo-container { flex-direction: column; align-items: center; gap: 2rem; }
+}

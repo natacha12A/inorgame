@@ -1,45 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="nivel1.css">
-  <title>INORGAME2</title>
+  <title>INORGAME</title>
+  <link rel="stylesheet" href="./nivel1/nivel1.css">
 </head>
 <body>
   <header>
-    <img src="./assets/logo clara (2).png" id="logo" alt="logo">
+    <img src="./assets/logo clara (1).png" id="logo" alt="logo">
   </header>
 
-    <!-- Popup da logo -->
-<div id="popup-logo" class="popup">
-  <div class="popup-content">
-    <p>Deseja voltar para o menu?</p>
-    <div class="botoesLogo">
-      <button id="btnLogoSim">SIM</button>
-      <button id="btnLogoNao">NÃO</button>
+  <!-- Popup Logo -->
+  <div id="popup-logo" class="popup">
+    <div class="popup-content">
+      <h2>Deseja voltar para o menu?</h2>
+      <img src="./assets/bixinho-popup.png" alt="" class="bixin">
+      <div class="botoesLogo">
+        <button id="btnLogoSim">SIM</button>
+        <button id="btnLogoNao">NÃO</button>
+      </div>
     </div>
   </div>
-</div>
 
-  <img src="./assets/pergunta 2.png" alt="nivel1">
-  <p>Classifique os compostos</p>
+  <img src="./assets/pergunta 2 (3).png" alt="nivel1">
+  <h1>Ácido, base, sal ou óxido? Mostre que você sabe!</h1>
 
-  <!-- Bixinho -->
-  <div id="bixinho-triste" class="bixinho" style="display: none;">
-    <img src="./assets/bixinho-popup.png" alt="Bixinho triste" id="bixinho-img" />
-  </div>
-  
-  <!-- Popup explicação do bixinho -->
+  <!-- Bixinho triste -->
+  <div id="bixinho-triste" class="bixinho" style="display: none;"></div>
+
+  <!-- Popup Explicação Bixinho -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <span id="fecharPopup" class="fechar">&times;</span>
-      <h2 class="h2-bixin">Explicação</h2>
-      <p class="popup-text">Essa informação está errada pois HCl é um ácido não uma base</p>
+      <div class="popup-header">
+        <h2 class="h2-bixin">Explicação</h2>
+        <img src="./assets/bixinho-popup.png" alt="" class="bixin-popup">
+      </div>
+      <p class="popup-text">Essa informação está errada!</p>
     </div>
   </div>
 
-  <div class="compostos" id="compostos">
+  <!-- Composto e Categorias -->
+
+   <div class="compostos" id="compostos">
     <div class="composto" draggable="true" data-tipo="ácido">HCl</div>
     <div class="composto" draggable="true" data-tipo="sal">NaCl</div>
     <div class="composto" draggable="true" data-tipo="óxido">CO2</div>
@@ -52,37 +56,40 @@
     <div class="categoria" data-tipo="sal">Sal</div>
     <div class="categoria" data-tipo="óxido">Óxido</div>
   </div>
+ 
 
+  <!-- Progress Bar -->
   <div class="progress-bar">
     <div class="progress" id="progress"></div>
   </div>
 
-  <!-- Popup final -->
+  <!-- Popup Final -->
   <div id="popup-final" class="popup">
+    <canvas id="fireworksCanvas"></canvas>
     <div class="popup-caixa">
-      <div class="estrela"><img src="./assets/image 20.png" alt=""></div>
-      <p id="mensagem-final">Parabéns! Você concluiu o primeiro nivel</p>
+      <div class="estrela"><img src="./assets/a1.png" alt=""></div>
+      <p id="mensagem-final">Parabéns! Você concluiu o primeiro nível</p>
       <p id="mensagem-final2">Deseja continuar jogando?</p>
       <div class="botoes">
-        <button id="btnNao">NAO</button>
+        <button id="btnNao">NÃO</button>
         <button id="btnSim">SIM</button>
       </div>
     </div>
   </div>
 
-  <!-- Popup de erro -->
+  <!-- Popup de Erro -->
   <div id="popup-erro" class="popup">
     <div class="popup-caixa">
-      <div class="estrela"><img src="./assets/image 22.png" alt="estrela branca"></div>
-      <p id="mensagem-final">Poxa! Só uma estrela branca... Tente novamente!</p>
-      <p id="mensagem-final2">Deseja tentar novamente?</p>
+      <div class="estrela"><img src="./assets/a2.png" alt="estrela branca"></div>
+      <p id="mensagem-erro">Poxa! Não foi dessa vez... Tente novamente!</p>
+      <p id="mensagem-erro2">Deseja tentar novamente?</p>
       <div class="botoes">
-        <button id="btnSim">SIM</button>
-        <button id="btnSim">NÃO</button>
+        <button id="btnErroSim">SIM</button>
+        <button id="btnErroNao">NÃO</button>
       </div>
     </div>
   </div>
 
-  <script src="./nivel1.js"></script>
+  <script src="./nivel1/nivel1.js"></script>
 </body>
 </html>
