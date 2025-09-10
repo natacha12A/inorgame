@@ -1,6 +1,7 @@
 /* ================== FUNDO COM ESTRELAS ================== */
 body {
     position: relative;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -54,6 +55,8 @@ header {
 }
 
 /* ================== POPUPS ================== */
+
+
 .popup {
     display: none; /* invisível inicialmente */
     position: fixed;
@@ -62,7 +65,6 @@ header {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.6);
-    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 100;
@@ -131,22 +133,55 @@ header {
 }
 
 /* ================== POPUP LOGO ================== */
+
+/* === Popup da logo === */
+#popup-logo {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+
+    
+}
+
+#popup-logo .popup-content {
+    background: linear-gradient(180deg, #6F4A8E, #45285d);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 0.5rem 1.5rem rgba(0,0,0,0.4);
+    animation: scaleIn 0.3s ease;
+    
+}
+
 #popup-logo h2 {
     font-size: 2rem;
     color: #FEC800;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    font-family: 'Montsserrat';
 }
 
-.bixin {
+#popup-logo .bixin {
     max-height: 140px;
+    width: auto;
     margin: 1rem auto;
+    display: block;
 }
 
 .botoesLogo {
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 2rem;
     flex-wrap: wrap;
 }
 
@@ -170,13 +205,12 @@ header {
     background: linear-gradient(90deg, #FFD84A, #F2BD33);
     box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.35);
 }
-
 /* ================== COMPOSTOS & CATEGORIAS ================== */
 h1 {
     font-size: 2rem;
     margin-bottom: 0;
     text-align: center;
-    font-family: 'Montsserrat';
+    font-family: 'Montserrat';
 }
 
 .compostos {
@@ -186,8 +220,7 @@ h1 {
     flex-wrap: wrap;
     width: 90%;
     max-width: 1400px;
-    margin: 4rem auto 0 auto;
-    margin-top: 2rem;
+    margin: 2rem auto;
 }
 
 .composto {
@@ -229,10 +262,6 @@ h1 {
     transition: background 0.4s;
 }
 
-.conteudo{
-    margin-top: 0;
-}
-
 .categoria.over { outline: 2px dashed #ffcc00; }
 .categoria.correto { background: #28a745 !important; color: #fff; }
 .categoria.errado { background: #dc3545 !important; color: #fff; }
@@ -264,7 +293,6 @@ h1 {
     border-radius: 1.25rem;
     width: 90%;
     max-width: 800px;
-    max-height: 700px;
     text-align: center;
     box-shadow: 0 0 1.25rem rgba(0,0,0,0.5);
     position: relative;
@@ -278,12 +306,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#mensagem-final, #mensagem-erro {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-}
-
+#mensagem-final, #mensagem-erro,
 #mensagem-final2, #mensagem-erro2 {
     font-size: 2rem;
     font-weight: bold;
@@ -316,18 +339,6 @@ h1 {
     opacity: 0.85;
 }
 
-/* ================== POPUP FINAL CENTRALIZADO ================== */
-#popup-final {
-    display: none;
-    justify-content: center; 
-    align-items: center;
-}
-
-#popup-final .popup-caixa {
-    background: #d8cce8;
-    z-index: 2;
-}
-
 /* ================== CANVAS FOGOS ================== */
 #fireworksCanvas {
     position: absolute;
@@ -339,7 +350,7 @@ h1 {
     pointer-events: none;
 }
 
-/* ================== MEDIA QUERIES PARA TELA PEQUENA ================== */
+/* ================== MEDIA QUERIES ================== */
 @media (max-width: 768px) {
     .composto, .categoria {
         font-size: 1.2rem;
@@ -356,3 +367,4 @@ h1 {
         font-size: 1.5rem;
     }
 }
+

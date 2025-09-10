@@ -18,6 +18,8 @@ const popupLogo = document.getElementById("popup-logo");
 const btnLogoSim = document.getElementById("btnLogoSim");
 const btnLogoNao = document.getElementById("btnLogoNao");
 
+//-------Logo-----------------------------
+
 // Abre popup ao clicar na logo
 logo.addEventListener("click", () => {
   popupLogo.style.display = "flex";
@@ -25,7 +27,7 @@ logo.addEventListener("click", () => {
 
 // Botão SIM: volta para o menu (ou pode recarregar a página principal)
 btnLogoSim.addEventListener("click", () => {
-  window.location.href = "./index.html"; // ou outra página de menu
+  window.location.href = "homeJogos.html"; // ou outra página de menu
 });
 
 // Botão NÃO: fecha o popup
@@ -229,7 +231,12 @@ function pararFogos(){
 
 // ---------------- Eventos popups finais ----------------
 btnErroSim.addEventListener("click", () => location.reload());
-btnErroNao.addEventListener("click", () => popupErro.style.display="none");
+
+// Botão "NÃO" → sai do jogo
+btnErroNao.addEventListener("click", () => {
+    popupErro.style.display = "none";
+    window.location.href = "homeJogos.html"; // sai do jogo
+});
 
 btnSim.addEventListener("click", () => location.reload());
 btnNao.addEventListener("click", () => popupFinal.style.display = "none");

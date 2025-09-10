@@ -297,6 +297,15 @@ a{
 
 
 }
+
+main > a {
+    display: flex;
+    justify-content: center;
+    width: 50%; height: 100%;
+    border-radius: 100%;
+    
+}
+
 .botoesLogo button:hover {
     transform: translateY(-3px) scale(1.05);
     background: linear-gradient(90deg, #FFD84A, #F2BD33);
@@ -308,4 +317,3 @@ a{
     background: linear-gradient(90deg, #FFD84A, #F2BD33);
     box-shadow: 0 8px 16px rgba(0,0,0,0.35);
 }
-

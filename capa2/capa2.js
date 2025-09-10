@@ -15,7 +15,7 @@ const btnLogoSim = document.getElementById("btnLogoSim");
 logo.addEventListener("click", () => popupLogo.classList.add("ativo"));
 btnLogoNao.addEventListener("click", () => popupLogo.classList.remove("ativo"));
 btnLogoSim.addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = "homeJogos.html";
 });
 
 // ---------- POPUP ÁTOMO (se existir) ----------

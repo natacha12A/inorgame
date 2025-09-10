@@ -14,8 +14,8 @@ const btnSimFinal = document.getElementById("btnSim");
 const btnNaoFinal = document.getElementById("btnNao");
 
 const popupErro = document.getElementById("popup-erro");
-const btnErroSim = document.querySelector("#popup-erro .botoes #btnSim"); 
-const btnErroNao = document.querySelector("#popup-erro .botoes #btnNao");
+const btnErroSim = document.getElementById("btnErroSim"); 
+const btnErroNao = document.getElementById("btnErroNao");
 
 // Popup logo
 const logo = document.getElementById("logo");
@@ -123,12 +123,21 @@ fecharPopup.addEventListener("click", () => {
 });
 
 // ------------------- POPUP FINAL -------------------
-btnSimFinal.addEventListener("click", () => { location.reload(); });
-btnNaoFinal.addEventListener("click", () => { popupFinal.style.display = "none"; });
+btnSimFinal.addEventListener("click", () => { window.location.href = "capa3.html";  });
+btnNaoFinal.addEventListener("click", () => { popupFinal.style.display = "none"; pararFogos(); window.location.href = "homeJogos.html"; });
 
 // ------------------- POPUP ERRO FINAL -------------------
-if(btnErroSim) btnErroSim.addEventListener("click", () => location.reload());
-if(btnErroNao) btnErroNao.addEventListener("click", () => popupErro.style.display = "none");
+// Botão "SIM" → reinicia o nível
+btnErroSim.addEventListener("click", () => {
+    popupErro.style.display = "none";
+    location.reload(); // reinicia o jogo
+});
+
+// Botão "NÃO" → sai do jogo
+btnErroNao.addEventListener("click", () => {
+    popupErro.style.display = "none";
+    window.location.href = "homeJogos.html"; // sai do jogo
+});
 
 // ------------------- POPUP LOGO -------------------
 logo.addEventListener("click", () => {
@@ -140,7 +149,7 @@ btnLogoNao.addEventListener("click", () => {
 });
 
 btnLogoSim.addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = "homeJogos.html";
 });
 
 // ---------------- Fogos ----------------

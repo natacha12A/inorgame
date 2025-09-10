@@ -123,12 +123,15 @@ fecharPopup.addEventListener("click", () => {
 });
 
 // ------------------- POPUP FINAL -------------------
-btnSimFinal.addEventListener("click", () => { location.reload(); });
-btnNaoFinal.addEventListener("click", () => { popupFinal.style.display = "none"; pararFogos(); });
+btnSimFinal.addEventListener("click", () => { window.location.href = "capa2.html";  });
+btnNaoFinal.addEventListener("click", () => { popupFinal.style.display = "none"; pararFogos(); window.location.href = "homeJogos.html"; });
 
 // ------------------- POPUP ERRO FINAL -------------------
 if(btnErroSim) btnErroSim.addEventListener("click", () => location.reload());
-if(btnErroNao) btnErroNao.addEventListener("click", () => popupErro.style.display = "none");
+// Botão "NÃO" → vai para outra página
+if(btnErroNao) btnErroNao.addEventListener("click", () => {
+    window.location.href = "capa2.html"; // substitua pelo link desejado
+});
 
 // ------------------- POPUP LOGO -------------------
 logo.addEventListener("click", () => {
@@ -138,7 +141,7 @@ btnLogoNao.addEventListener("click", () => {
   popupLogo.style.display = "none";
 });
 btnLogoSim.addEventListener("click", () => {
-  window.location.href = "index.html";
+  window.location.href = "homeJogos.html";
 });
 
 // ---------------- Fogos ----------------
