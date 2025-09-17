@@ -118,10 +118,13 @@ header {
 }
 
 /* ================= Texto e imagens ================= */
-p {
-    font-size: 2.5rem;
+/* Texto principal */
+h1 {
+    font-size: 2rem;
     margin-bottom: 0;
-    font-family: 'Montsserrat';
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 400;
 }
 
 .popup-text{
@@ -132,7 +135,7 @@ p {
 
 .popup h2{
     font-size: 2rem;
-    font-family: 'Montsserrat';
+    font-family: 'Montserrat';
 }
 
 .popup p{
@@ -474,9 +477,9 @@ p {
 
 /* Título do popup */
 #popup-final #mensagem-final {
-    font-family: 'Montsserrat';
+    font-family: 'Montserrat';
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #2b0c46;
     margin: 0;
     
@@ -484,7 +487,7 @@ p {
 
 /* Texto do popup */
 #popup-final #mensagem-final2 {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
     color: #2b0c46;
     margin: 0;
@@ -493,7 +496,7 @@ p {
 
 /* Mascote do popup */
 #popup-final .estrela {
-    width: 100rem;      /* aumentando ainda mais */
+    width: 120rem;      /* aumentando ainda mais */
     max-width: 100%;    /* não ultrapassa o contêiner */
     height: auto;
     display: block;
@@ -633,9 +636,9 @@ p {
 
 /* Título do popup de erro */
 #popup-erro #mensagem-erro {
-    font-family: 'Montsserrat';
+    font-family: 'Montserrat';
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: #FEC800; /* amarelo para destaque */
     margin: 0;
 }

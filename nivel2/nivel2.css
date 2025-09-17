@@ -53,12 +53,11 @@ header {
 
 /* Texto principal */
 h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 0;
-    font-family: 'Montsserrat';
-    max-width: 90%;
-    margin-top: 0;
-    margin-left: 2rem;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-weight: 400;
 }
 
 #nivel2 {
@@ -355,27 +354,32 @@ h1 {
     font-weight: bold;
     margin-bottom: 1rem;
 }
+
 /* ================== BOTÕES ================== */
-#popup-erro .botoes button {
-    
-    width: 12.125rem;
-    cursor: pointer;
-    background: linear-gradient(90deg, #F2BD33, #e1a81f); /* degradê amarelo */
-    color: white; /* texto branco */
-    font-size: 18px; /* mesmo tamanho dos da logo */
-    font-weight: bold;
+.botoes {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.botoes button {
+    background: #522780;
     border: none;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+    color: #F2BD33;
+    padding: 0.75rem 2rem;
+    border-radius: 0.625rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    height: 4.5rem;
+    width: 200px;
+    max-width: 90%;
 }
 
-#popup-erro .botoes button:hover {
-    transform: translateY(-3px) scale(1.05);
-    background: linear-gradient(90deg, #FFD84A, #F2BD33); /* hover amarelo */
-    box-shadow: 0 8px 16px rgba(0,0,0,0.35);
+.botoes button:hover {
+    opacity: 0.85;
 }
-
 /* ================= Botões do popup de erro lado a lado ================= */
 #popup-erro .botoes {
     display: flex;           /* flex container */
